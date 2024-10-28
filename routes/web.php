@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminTeacherController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/admin/teachers', [AdminTeacherController::class, 'index'])->name('admin.teachers.index');
+
+Route::get('/admin/teachers/create', [AdminTeacherController::class, 'create'])->name('admin.teachers.create');
+
+Route::get('/admin/teachers/edit', [AdminTeacherController::class, 'edit'])->name('admin.teachers.edit');
+
+Route::post('/admin/teachers', [AdminTeacherController::class, 'store'])->name('admin.teachers.store');
+
+Route::delete('/admin/teachers/{teacher}', [AdminTeacherController::class, 'destroy'])->name('admin.teachers.destroy');
+
+Route::put('/admin/teachers/{teacher}', [AdminTeacherController::class, 'update'])->name('admin.teachers.update');
