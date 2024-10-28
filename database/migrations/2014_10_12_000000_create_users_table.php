@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('date_birth');
             $table->string('image_avatar')->nullable();
             $table->string('password');
+            $table->string('description')->nullable();
+            $table->string('role');
             $table->rememberToken();
             $table->timestamps();
         });

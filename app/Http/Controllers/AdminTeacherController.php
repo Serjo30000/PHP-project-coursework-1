@@ -6,6 +6,7 @@ use App\Models\Teacher;
 use App\Rules\EmailRule;
 use App\Rules\PhoneNumberRule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 
@@ -13,8 +14,14 @@ class AdminTeacherController extends Controller
 {
     public function index()
     {
-        $teachers = Teacher::all();
+        $teachers = Teacher::paginate(10);
+
         return view('admin.teachers.admin-teachers', compact('teachers'));
+    }
+
+    public function show(Teacher $teacher)
+    {
+        return view('admin.teachers.admin-show-teacher', compact('teacher'));
     }
 
     public function create()
@@ -27,7 +34,7 @@ class AdminTeacherController extends Controller
         $validated = $request->validate([
             'first_name' => 'required|string|max:255',
             'second_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
+            'last_name' => 'string|max:255',
             'sex' => 'required|string',
             'date_birth' => 'required|date',
             'phone' => ['required', 'string', 'max:15', 'unique:teachers', new PhoneNumberRule],
@@ -37,7 +44,7 @@ class AdminTeacherController extends Controller
         ]);
 
         $uuid = (string) Str::uuid();
-        $fileName = $uuid;
+        $fileName = $uuid . '.jpg';
 
         if ($request->hasFile('image_photo')) {
             $validated['image_photo'] = $request->file('image_photo')->storeAs('images/dynamic/photos', $fileName, 'public');
@@ -68,17 +75,26 @@ class AdminTeacherController extends Controller
         $validated = $request->validate([
             'first_name' => 'required|string|max:255',
             'second_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
+            'last_name' => 'string|max:255',
             'sex' => 'required|string',
             'date_birth' => 'required|date',
             'phone' => ['required', 'string', 'max:15', Rule::unique('users', 'phone')->ignore($teacher->id), new PhoneNumberRule],
             'email' => ['required', 'string', 'max:255', Rule::unique('users', 'email')->ignore($teacher->id), new EmailRule()],
             'description' => 'required|string',
-            'image_photo' => 'required|image',
+            'image_photo' => 'image',
         ]);
 
+        $fileName = $teacher->image_photo;
+
         if ($request->hasFile('image_photo')) {
-            $validated['image_photo'] = $request->file('image_photo')->store('images/dynamic/photos', 'public');
+            if (Storage::disk('public')->exists('/images/dynamic/photos/' . $fileName)) {
+                Storage::disk('public')->delete('/images/dynamic/photos/' . $fileName);
+            }
+
+            $uuid = (string) Str::uuid();
+            $fileName = $uuid . '.jpg';
+
+            $validated['image_photo'] = $request->file('image_photo')->storeAs('images/dynamic/photos', $fileName, 'public');
         }
 
         $teacher->update([
@@ -90,7 +106,7 @@ class AdminTeacherController extends Controller
             'phone' => $request->input('phone'),
             'email' => $request->input('email'),
             'description' => $request->input('description'),
-            'image_photo' => $teacher->image_photo,
+            'image_photo' => $fileName,
         ]);
 
         return redirect()->route('admin.teachers.index')->with('success', 'Teacher updated successfully.');
@@ -98,6 +114,10 @@ class AdminTeacherController extends Controller
 
     public function destroy(Teacher $teacher)
     {
+        if (Storage::disk('public')->exists('/images/dynamic/photos/' . $teacher->image_photo)) {
+            Storage::disk('public')->delete('/images/dynamic/photos/' . $teacher->image_photo);
+        }
+
         $teacher->delete();
         return redirect()->route('admin.teachers.index')->with('success', 'Teacher deleted successfully.');
     }
