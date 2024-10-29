@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="page-title">Пользователи</h1>
     <a href="{{ route('admin.users.create') }}" class="btn btn-primary">Создание пользователя</a>
-    <table class="teachers-table">
+    <table class="admin-table">
         <thead>
         <tr>
             <th>Номер</th>

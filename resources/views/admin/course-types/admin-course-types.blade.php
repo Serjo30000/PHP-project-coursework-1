@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="page-title">Типы курсов</h1>
     <a href="{{ route('admin.course-types.create') }}" class="btn btn-primary">Создание типа курсов</a>
-    <table class="teachers-table">
+    <table class="admin-table">
         <thead>
         <tr>
             <th>Номер</th>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\CourseType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -12,7 +13,13 @@ class AuthorCourseController extends Controller
 {
     public function index()
     {
-        $courses = Course::paginate(10);
+        $user = Auth::user();
+
+        if (!$user){
+            return redirect()->route('home')->with('error', 'Course not created successfully.');
+        }
+
+        $courses = Course::where('user_id',$user->id)->paginate(10);
 
         return view('author.courses.author-courses', compact('courses'));
     }
@@ -24,7 +31,8 @@ class AuthorCourseController extends Controller
 
     public function create()
     {
-        return view('author.courses.author-create-course');
+        $courseTypes = CourseType::all();
+        return view('author.courses.author-create-course', compact('courseTypes'));
     }
 
     public function store(Request $request)
@@ -67,7 +75,7 @@ class AuthorCourseController extends Controller
         $user = Auth::user();
 
         if (!$user){
-            return redirect()->route('author.courses.index')->with('error', 'Course not created successfully.');
+            return redirect()->route('home')->with('error', 'Course not created successfully.');
         }
 
         $course = Course::create([
@@ -90,7 +98,8 @@ class AuthorCourseController extends Controller
 
     public function edit(Course $course)
     {
-        return view('author.courses.author-edit-courses', compact('course'));
+        $courseTypes = CourseType::all();
+        return view('author.courses.author-edit-course', compact('course','courseTypes'));
     }
 
     public function update(Request $request, Course $course)
@@ -150,8 +159,8 @@ class AuthorCourseController extends Controller
 
         $user = Auth::user();
 
-        if (!$user){
-            return redirect()->route('author.courses.index')->with('error', 'Course not updated successfully.');
+        if (!$user || $course->user_id!=$user->id){
+            return redirect()->route('home')->with('error', 'Course not updated successfully.');
         }
 
         $course->update([
@@ -174,6 +183,18 @@ class AuthorCourseController extends Controller
 
     public function destroy(Course $course)
     {
+        if (Storage::disk('public')->exists('/images/dynamic/logo_courses/' . $course->image_logo)) {
+            Storage::disk('public')->delete('/images/dynamic/logo_courses/' . $course->image_logo);
+        }
+
+        if (Storage::disk('public')->exists('/images/dynamic/banner_courses/' . $course->image_banner_course)) {
+            Storage::disk('public')->delete('/images/dynamic/banner_courses/' . $course->image_banner_course);
+        }
+
+        if (Storage::disk('public')->exists('/images/dynamic/certificates/' . $course->image_certificate)) {
+            Storage::disk('public')->delete('/images/dynamic/certificates/' . $course->image_certificate);
+        }
+
         $course->delete();
         return redirect()->route('author.courses.index')->with('success', 'Course deleted successfully.');
     }

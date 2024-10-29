@@ -3,7 +3,7 @@
 @section('content')
     <h1 class="page-title">Учителя</h1>
     <a href="{{ route('admin.teachers.create') }}" class="btn btn-primary">Создание учителя</a>
-    <table class="teachers-table">
+    <table class="admin-table">
         <thead>
         <tr>
             <th>Номер</th>

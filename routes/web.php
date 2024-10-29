@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCourseController;
 use App\Http\Controllers\AdminReviewController;
 use App\Http\Controllers\AdminTeacherController;
 use App\Http\Controllers\AdminUserController;
@@ -66,10 +67,28 @@ Route::middleware(['role:admin'])->group(function () {
     Route::delete('/admin/course-types/{course_type}', [AdminCourseTypeController::class, 'destroy'])->name('admin.course-types.destroy');
 
     Route::put('/admin/course-types/{course_type}', [AdminCourseTypeController::class, 'update'])->name('admin.course-types.update');
+
+    Route::get('/admin/courses', [AdminCourseController::class, 'index'])->name('admin.courses.index');
+
+    Route::get('/admin/courses/{course}', [AdminCourseController::class, 'show'])->name('admin.courses.show');
+
+    Route::delete('/admin/courses/{course}', [AdminCourseController::class, 'destroy'])->name('admin.courses.destroy');
 });
 
 Route::middleware(['role:author'])->group(function () {
     Route::get('/author/courses', [AuthorCourseController::class, 'index'])->name('author.courses.index');
+
+    Route::get('/author/courses/create', [AuthorCourseController::class, 'create'])->name('author.courses.create');
+
+    Route::get('/author/courses/{course}', [AuthorCourseController::class, 'show'])->name('author.courses.show');
+
+    Route::get('/author/courses/edit/{course}', [AuthorCourseController::class, 'edit'])->name('author.courses.edit');
+
+    Route::post('/author/courses', [AuthorCourseController::class, 'store'])->name('author.courses.store');
+
+    Route::delete('/author/courses/{course}', [AuthorCourseController::class, 'destroy'])->name('author.courses.destroy');
+
+    Route::put('/author/courses/{course}', [AuthorCourseController::class, 'update'])->name('author.courses.update');
 });
 
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
