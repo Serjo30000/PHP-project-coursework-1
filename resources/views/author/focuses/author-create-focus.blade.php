@@ -2,8 +2,8 @@
 
 @section('content')
     <div class="form-container">
-        <h1 class="form-title">Создание учителя для курса</h1>
-        <a href="{{ route('author.course-teachers.allCourseTeachers',$course->id) }}" class="action-link secondary-action">Вернуться</a>
+        <h1 class="form-title">Создание для кого курс</h1>
+        <a href="{{ route('author.focuses.allFocuses',$course->id) }}" class="action-link secondary-action">Вернуться</a>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -15,7 +15,7 @@
             </div>
         @endif
 
-        <form action="{{ route('author.course-teachers.store') }}" method="POST" enctype="multipart/form-data" class="teacher-form">
+        <form action="{{ route('author.focuses.store') }}" method="POST" enctype="multipart/form-data" class="teacher-form">
             @csrf
             <div class="form-group">
                 <label for="course_id">Курс</label>
@@ -28,14 +28,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="teacher_id">Учитель</label>
-                <select name="teacher_id" required>
-                    @foreach ($teachers as $teacher)
-                        <option value="{{ $teacher->id }}" {{ old('teacher_id') == $teacher->id ? 'selected' : '' }}>
-                            {{ $teacher->email }}
-                        </option>
-                    @endforeach
-                </select>
+                <label for="for_whom">Для кого</label>
+                <input type="text" name="for_whom" value="{{ old('for_whom', $focus->for_whom ?? '') }}" required>
             </div>
             <button type="submit" class="submit-button">Создать</button>
         </form>

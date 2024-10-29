@@ -28,7 +28,7 @@ class AuthorCourseTeacherController extends Controller
         $user = Auth::user();
 
         if (!$user || !$course || $course->user_id!=$user->id){
-            return redirect()->route('home')->with('error', 'Course not create successfully.');
+            return redirect()->route('home')->with('error', 'CourseTeacher not create successfully.');
         }
 
         $teachers = Teacher::all();
@@ -50,6 +50,14 @@ class AuthorCourseTeacherController extends Controller
 
         if (!$user || $course->user_id!=$user->id){
             return redirect()->route('home')->with('error', 'CourseTeacher not create successfully.');
+        }
+
+        $existingCourseTeacher = CourseTeacher::where('course_id', $request->input('course_id'))
+            ->where('teacher_id', $request->input('teacher_id'))
+            ->exists();
+
+        if ($existingCourseTeacher) {
+            return redirect()->back()->withErrors(['teacher_id' => 'This teacher is already assigned to the selected course.']);
         }
 
         $course_teacher = CourseTeacher::create([
@@ -89,6 +97,15 @@ class AuthorCourseTeacherController extends Controller
 
         if (!$user || !$course_teacher || $course->user_id!=$user->id || $old_course->user_id!=$user->id){
             return redirect()->route('home')->with('error', 'CourseTeacher not updated successfully.');
+        }
+
+        $existingCourseTeacher = CourseTeacher::where('course_id', $request->input('course_id'))
+            ->where('teacher_id', $request->input('teacher_id'))
+            ->where('id', '!=', $course_teacher->id)
+            ->exists();
+
+        if ($existingCourseTeacher) {
+            return redirect()->back()->withErrors(['teacher_id' => 'This teacher is already assigned to the selected course.']);
         }
 
         $course_teacher->update([

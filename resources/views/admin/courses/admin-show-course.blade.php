@@ -19,6 +19,15 @@
                 <strong>Количество недель:</strong> <span>{{ $course->count_week }}</span>
             </div>
             <div class="info-item">
+                <strong>Количество лекций:</strong> <span>{{ $course->count_lectures }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Количество практик:</strong> <span>{{ $course->count_seminars }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Количество онлайн занятий:</strong> <span>{{ $course->count_online_classes }}</span>
+            </div>
+            <div class="info-item">
                 <strong>Цена:</strong> <span>{{ $course->price }}</span>
             </div>
             <div class="info-item">

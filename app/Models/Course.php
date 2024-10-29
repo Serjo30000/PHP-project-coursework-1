@@ -16,6 +16,9 @@ class Course extends Model
         'slogan',
         'description',
         'count_week',
+        'count_lectures',
+        'count_seminars',
+        'count_online_classes',
         'price',
         'complexity',
         'lecture_status',
@@ -34,11 +37,6 @@ class Course extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function coursePrograms()
-    {
-        return $this->hasMany(CourseProgram::class);
     }
 
     public function courseTeachers()

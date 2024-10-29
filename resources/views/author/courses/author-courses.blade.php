@@ -38,6 +38,9 @@
                     <form action="{{ route('author.course-teachers.allCourseTeachers', $course->id) }}" method="GET" style="display: inline;">
                         <button type="submit" class="btn-action btn-connect">Учителя для курса</button>
                     </form>
+                    <form action="{{ route('author.focuses.allFocuses', $course->id) }}" method="GET" style="display: inline;">
+                        <button type="submit" class="btn-action btn-connect">Для кого курс</button>
+                    </form>
                 </td>
             </tr>
         @endforeach

@@ -20,7 +20,7 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="course_id">Курса</label>
+                <label for="course_id">Курс</label>
                 <select name="course_id" required>
                     @foreach ($courses as $courseEl)
                         <option value="{{ $courseEl->id }}" {{ old('course_id') == $courseEl->id ? 'selected' : '' }}>

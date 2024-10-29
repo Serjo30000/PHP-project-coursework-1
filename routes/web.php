@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminCourseTypeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorCourseController;
 use App\Http\Controllers\AuthorCourseTeacherController;
+use App\Http\Controllers\AuthorFocusController;
 use App\Http\Controllers\AuthorReviewController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -109,6 +110,20 @@ Route::middleware(['role:author'])->group(function () {
     Route::delete('/author/course-teachers/{course_teacher}', [AuthorCourseTeacherController::class, 'destroy'])->name('author.course-teachers.destroy');
 
     Route::put('/author/course-teachers/{course_teacher}', [AuthorCourseTeacherController::class, 'update'])->name('author.course-teachers.update');
+
+    Route::get('/author/focuses/allFocuses/{course}', [AuthorCourseController::class, 'allFocuses'])->name('author.focuses.allFocuses');
+
+    Route::get('/author/focuses/{focus}', [AuthorFocusController::class, 'show'])->name('author.focuses.show');
+
+    Route::get('/author/focuses/create/{course}', [AuthorFocusController::class, 'create'])->name('author.focuses.create');
+
+    Route::get('/author/focuses/edit/{focus}', [AuthorFocusController::class, 'edit'])->name('author.focuses.edit');
+
+    Route::post('/author/focuses', [AuthorFocusController::class, 'store'])->name('author.focuses.store');
+
+    Route::delete('/author/focuses/{focus}', [AuthorFocusController::class, 'destroy'])->name('author.focuses.destroy');
+
+    Route::put('/author/focuses/{focus}', [AuthorFocusController::class, 'update'])->name('author.focuses.update');
 });
 
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');

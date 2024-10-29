@@ -32,6 +32,18 @@
                 <input type="number" name="count_week" value="{{ old('count_week', $course->count_week ?? '') }}" min="1" required>
             </div>
             <div class="form-group">
+                <label for="count_lectures">Количество лекций</label>
+                <input type="number" name="count_lectures" value="{{ old('count_lectures', $course->count_lectures ?? '') }}" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="count_seminars">Количество практик</label>
+                <input type="number" name="count_seminars" value="{{ old('count_seminars', $course->count_seminars ?? '') }}" min="1" required>
+            </div>
+            <div class="form-group">
+                <label for="count_online_classes">Количество онлайн занятий</label>
+                <input type="number" name="count_online_classes" value="{{ old('count_online_classes', $course->count_online_classes ?? '') }}" min="1" required>
+            </div>
+            <div class="form-group">
                 <label for="price">Цена</label>
                 <input type="number" name="price" value="{{ old('price', $course->price ?? '') }}" min="0" step="0.01" required>
             </div>
@@ -42,9 +54,9 @@
             <div class="form-group">
                 <label for="complexity">Сложность</label>
                 <select name="complexity" required>
-                    <option value="Easy" {{ (old('complexity', $teacher->complexity ?? '') == 'Easy') ? 'selected' : '' }}>Легко</option>
-                    <option value="Middle" {{ (old('complexity', $teacher->complexity ?? '') == 'Middle') ? 'selected' : '' }}>Средне</option>
-                    <option value="Hard" {{ (old('complexity', $teacher->complexity ?? '') == 'Hard') ? 'selected' : '' }}>Сложно</option>
+                    <option value="Easy" {{ (old('complexity', $course->complexity ?? '') == 'Easy') ? 'selected' : '' }}>Легко</option>
+                    <option value="Middle" {{ (old('complexity', $course->complexity ?? '') == 'Middle') ? 'selected' : '' }}>Средне</option>
+                    <option value="Hard" {{ (old('complexity', $course->complexity ?? '') == 'Hard') ? 'selected' : '' }}>Сложно</option>
                 </select>
             </div>
             <div class="form-group">

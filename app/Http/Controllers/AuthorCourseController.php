@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\CourseTeacher;
 use App\Models\CourseType;
+use App\Models\Focus;
 use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -44,6 +45,9 @@ class AuthorCourseController extends Controller
             'slogan' => 'required|string',
             'description' => 'required|string',
             'count_week' => 'required|integer|min:1',
+            'count_lectures' => 'required|integer|min:1',
+            'count_seminars' => 'required|integer|min:1',
+            'count_online_classes' => 'required|integer|min:1',
             'price' => 'required|numeric|min:0',
             'complexity' => 'required|string',
             'lecture_status' => 'required|string',
@@ -85,6 +89,9 @@ class AuthorCourseController extends Controller
             'slogan' => $request->input('slogan'),
             'description' => $request->input('description'),
             'count_week' => $request->input('count_week'),
+            'count_lectures' => $request->input('count_lectures'),
+            'count_seminars' => $request->input('count_seminars'),
+            'count_online_classes' => $request->input('count_online_classes'),
             'price' => $request->input('price'),
             'complexity' => $request->input('complexity'),
             'lecture_status' => $request->input('lecture_status'),
@@ -111,6 +118,9 @@ class AuthorCourseController extends Controller
             'slogan' => 'required|string',
             'description' => 'required|string',
             'count_week' => 'required|integer|min:1',
+            'count_lectures' => 'required|integer|min:1',
+            'count_seminars' => 'required|integer|min:1',
+            'count_online_classes' => 'required|integer|min:1',
             'price' => 'required|numeric|min:0',
             'complexity' => 'required|string',
             'lecture_status' => 'required|string',
@@ -170,6 +180,9 @@ class AuthorCourseController extends Controller
             'slogan' => $request->input('slogan'),
             'description' => $request->input('description'),
             'count_week' => $request->input('count_week'),
+            'count_lectures' => $request->input('count_lectures'),
+            'count_seminars' => $request->input('count_seminars'),
+            'count_online_classes' => $request->input('count_online_classes'),
             'price' => $request->input('price'),
             'complexity' => $request->input('complexity'),
             'lecture_status' => $request->input('lecture_status'),
@@ -212,7 +225,7 @@ class AuthorCourseController extends Controller
         $user = Auth::user();
 
         if (!$user || $course->user_id!=$user->id){
-            return redirect()->route('home')->with('error', 'Course not updated successfully.');
+            return redirect()->route('home')->with('error', 'Reviews not shows successfully.');
         }
 
         $reviews = Review::where('course_id', $course->id)->paginate(10);
@@ -225,11 +238,24 @@ class AuthorCourseController extends Controller
         $user = Auth::user();
 
         if (!$user || $course->user_id!=$user->id){
-            return redirect()->route('home')->with('error', 'Course not updated successfully.');
+            return redirect()->route('home')->with('error', 'CourseTeachers not shows successfully.');
         }
 
         $course_teachers = CourseTeacher::where('course_id', $course->id)->paginate(10);
 
         return view('author.course-teachers.author-course-teachers', compact('course_teachers', 'course'));
+    }
+
+    public function allFocuses(Course $course)
+    {
+        $user = Auth::user();
+
+        if (!$user || $course->user_id!=$user->id){
+            return redirect()->route('home')->with('error', 'Focuses not shows successfully.');
+        }
+
+        $focuses = Focus::where('course_id', $course->id)->paginate(10);
+
+        return view('author.focuses.author-focuses', compact('focuses', 'course'));
     }
 }

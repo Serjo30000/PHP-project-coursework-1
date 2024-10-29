@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('slogan');
             $table->string('description');
             $table->integer('count_week');
+            $table->integer('count_lectures');
+            $table->integer('count_seminars');
+            $table->integer('count_online_classes');
             $table->double('price');
             $table->string('complexity');
             $table->string('lecture_status');
