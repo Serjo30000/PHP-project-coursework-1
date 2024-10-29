@@ -78,8 +78,8 @@ class AdminTeacherController extends Controller
             'last_name' => 'string|max:255',
             'sex' => 'required|string',
             'date_birth' => 'required|date',
-            'phone' => ['required', 'string', 'max:15', Rule::unique('users', 'phone')->ignore($teacher->id), new PhoneNumberRule],
-            'email' => ['required', 'string', 'max:255', Rule::unique('users', 'email')->ignore($teacher->id), new EmailRule()],
+            'phone' => ['required', 'string', 'max:15', Rule::unique('teachers', 'phone')->ignore($teacher->id), new PhoneNumberRule],
+            'email' => ['required', 'string', 'max:255', Rule::unique('teachers', 'email')->ignore($teacher->id), new EmailRule()],
             'description' => 'required|string',
             'image_photo' => 'image',
         ]);

@@ -7,12 +7,14 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-@include('partials.header-author')
+<div class="page-container">
+    @include('partials.header-author')
 
-<div class="container">
-    @yield('content')
+    <div class="container-admin">
+        @yield('content')
+    </div>
+
+    @include('partials.footer-author')
 </div>
-
-@include('partials.footer-author')
 </body>
 </html>

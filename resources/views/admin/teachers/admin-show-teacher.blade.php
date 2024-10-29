@@ -1,39 +1,42 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Просмотр учителя</h1>
+    <div class="view-container">
+        <div class="info-card">
+            <h1 class="view-title">Просмотр учителя</h1>
+            <a href="{{ route('admin.teachers.index') }}" class="action-link secondary-action">Вернуться</a>
 
-    <div>
-        <strong>Номер:</strong> {{ $teacher->id }}
+            <div class="info-item">
+                <strong>Номер:</strong> <span>{{ $teacher->id }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Имя:</strong> <span>{{ $teacher->first_name }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Фамилия:</strong> <span>{{ $teacher->second_name }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Отчество:</strong> <span>{{ $teacher->last_name }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Пол:</strong> <span>{{ $teacher->sex == 'Мужчина' ? 'Мужской' : 'Женский' }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Дата рождения:</strong> <span>{{ $teacher->date_birth }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Телефон:</strong> <span>{{ $teacher->phone }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Почта:</strong> <span>{{ $teacher->email }}</span>
+            </div>
+            <div class="info-item">
+                <strong>Описание:</strong> <span>{{ $teacher->description }}</span>
+            </div>
+            <div class="info-photo">
+                <strong>Фото:</strong><br>
+                <img src="{{ asset('storage/images/dynamic/photos/' . $teacher->image_photo) }}" alt="Фото">
+            </div>
+        </div>
     </div>
-    <div>
-        <strong>Имя:</strong> {{ $teacher->first_name }}
-    </div>
-    <div>
-        <strong>Фамилия:</strong> {{ $teacher->second_name }}
-    </div>
-    <div>
-        <strong>Отчество:</strong> {{ $teacher->last_name }}
-    </div>
-    <div>
-        <strong>Пол:</strong> {{ $teacher->sex == 'Мужчина' ? 'Мужской' : 'Женский' }}
-    </div>
-    <div>
-        <strong>Дата рождения:</strong> {{ $teacher->date_birth }}
-    </div>
-    <div>
-        <strong>Телефон:</strong> {{ $teacher->phone }}
-    </div>
-    <div>
-        <strong>Почта:</strong> {{ $teacher->email }}
-    </div>
-    <div>
-        <strong>Описание:</strong> {{ $teacher->description }}
-    </div>
-    <div>
-        <strong>Фото:</strong><br>
-        <img src="{{ asset('storage/images/dynamic/photos/' . $teacher->image_photo) }}" alt="Фото учителя" style="width: 150px; height: auto;">
-    </div>
-
-    <a href="{{ route('admin.teachers.index') }}" class="btn btn-secondary">Вернуться</a>
 @endsection

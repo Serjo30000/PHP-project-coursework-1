@@ -45,5 +45,7 @@
         @endforeach
         </tbody>
     </table>
-    {{ $teachers->links() }}
+    <div class="paginate-down-page">
+        {{ $teachers->links() }}
+    </div>
 @endsection

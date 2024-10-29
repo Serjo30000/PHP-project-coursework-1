@@ -4,33 +4,62 @@ body {
     padding: 0;
 }
 
-header, footer {
+.page-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+}
+
+.admin-footer {
     background-color: #333;
-    color: white;
-    padding: 1em;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
-nav ul {
-    list-style-type: none;
+.admin-footer p {
+    margin: 0;
+}
+
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.admin-title {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.admin-nav .admin-menu {
+    display: flex;
+    gap: 20px;
+    list-style: none;
     padding: 0;
+    margin: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 1em;
-}
-
-nav ul li a {
-    color: white;
+.admin-link {
     text-decoration: none;
+    color: #f0f0f0;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 4px;
 }
 
-main {
-    padding: 2em;
+.admin-link:hover {
+    background-color: #555;
+    color: #fff;
 }
-
-
-
 
 .page-title {
     font-size: 2rem;
@@ -97,4 +126,201 @@ main {
 
 .btn-delete:hover {
     background-color: #c82333;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea,
+.form-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #666;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #555;
+}
+
+.container-admin{
+    padding: 20px;
+}
+
+.view-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.view-title {
+    font-size: 1.8em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.info-card {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-item {
+    margin-bottom: 15px;
+}
+
+.info-item strong {
+    color: #555;
+}
+
+.info-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.action-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+.secondary-action {
+    background-color: #555;
+}
+
+.secondary-action:hover {
+    background-color: #444;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 2px;
+}
+
+.pagination a,
+.pagination span {
+    display: block;
+    padding: 4px 6px;
+    font-size: 0.8em;
+    color: #333;
+    background-color: #e0e0e0;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #ccc;
+}
+
+.pagination .active span {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Уменьшение стрелок */
+.pagination .arrow {
+    padding: 2px 4px;
+    font-size: 0.8em;
+    line-height: 1;
+}
+
+.pagination .arrow:hover {
+    background-color: #ccc;
+}
+
+.paginate-down-page {
+    display: flex;
+    justify-content: center;
 }
