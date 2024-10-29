@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminReviewController;
 use App\Http\Controllers\AdminTeacherController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminCourseTypeController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorCourseController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-//Route::middleware(['role:admin'])->group(function () {
+Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/teachers', [AdminTeacherController::class, 'index'])->name('admin.teachers.index');
 
     Route::get('/admin/teachers/create', [AdminTeacherController::class, 'create'])->name('admin.teachers.create');
@@ -65,8 +66,14 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::delete('/admin/course-types/{course_type}', [AdminCourseTypeController::class, 'destroy'])->name('admin.course-types.destroy');
 
     Route::put('/admin/course-types/{course_type}', [AdminCourseTypeController::class, 'update'])->name('admin.course-types.update');
-//});
+});
 
-//Route::middleware(['role:author'])->group(function () {
+Route::middleware(['role:author'])->group(function () {
     Route::get('/author/courses', [AuthorCourseController::class, 'index'])->name('author.courses.index');
-//});
+});
+
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [AuthController::class, 'login']);
+Route::get('register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('register', [AuthController::class, 'register']);
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');

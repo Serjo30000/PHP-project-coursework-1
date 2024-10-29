@@ -33,5 +33,7 @@
         @endforeach
         </tbody>
     </table>
-    {{ $course_types->links() }}
+    <div class="paginate-down-page">
+        {{ $course_types->links() }}
+    </div>
 @endsection

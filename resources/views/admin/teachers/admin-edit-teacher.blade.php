@@ -5,7 +5,6 @@
         <h1 class="form-title">Изменение учителя</h1>
         <a href="{{ route('admin.teachers.index') }}" class="action-link secondary-action">Вернуться</a>
 
-        <!-- Блок для отображения ошибок -->
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -68,7 +67,7 @@
                 <input type="file" name="image_photo">
             </div>
 
-            <button type="submit" class="action-link primary-action">Изменить</button>
+            <button type="submit" class="submit-button">Изменить</button>
         </form>
     </div>
 @endsection
