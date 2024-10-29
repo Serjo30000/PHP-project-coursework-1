@@ -7,6 +7,8 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminCourseTypeController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorCourseController;
+use App\Http\Controllers\AuthorCourseTeacherController;
+use App\Http\Controllers\AuthorReviewController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -89,6 +91,24 @@ Route::middleware(['role:author'])->group(function () {
     Route::delete('/author/courses/{course}', [AuthorCourseController::class, 'destroy'])->name('author.courses.destroy');
 
     Route::put('/author/courses/{course}', [AuthorCourseController::class, 'update'])->name('author.courses.update');
+
+    Route::get('/author/reviews/allReviews/{course}', [AuthorCourseController::class, 'allReviews'])->name('author.reviews.allReviews');
+
+    Route::get('/author/reviews/{review}', [AuthorReviewController::class, 'show'])->name('author.reviews.show');
+
+    Route::get('/author/course-teachers/allCourseTeachers/{course}', [AuthorCourseController::class, 'allCourseTeachers'])->name('author.course-teachers.allCourseTeachers');
+
+    Route::get('/author/course-teachers/{course_teacher}', [AuthorCourseTeacherController::class, 'show'])->name('author.course-teachers.show');
+
+    Route::get('/author/course-teachers/create/{course}', [AuthorCourseTeacherController::class, 'create'])->name('author.course-teachers.create');
+
+    Route::get('/author/course-teachers/edit/{course_teacher}', [AuthorCourseTeacherController::class, 'edit'])->name('author.course-teachers.edit');
+
+    Route::post('/author/course-teachers', [AuthorCourseTeacherController::class, 'store'])->name('author.course-teachers.store');
+
+    Route::delete('/author/course-teachers/{course_teacher}', [AuthorCourseTeacherController::class, 'destroy'])->name('author.course-teachers.destroy');
+
+    Route::put('/author/course-teachers/{course_teacher}', [AuthorCourseTeacherController::class, 'update'])->name('author.course-teachers.update');
 });
 
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');

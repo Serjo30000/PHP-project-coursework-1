@@ -21,9 +21,9 @@
                         <button type="submit" class="btn-action">Посмотреть</button>
                     </form>
                     <form action="{{ route('admin.course-types.edit', $course_type->id) }}" method="GET" style="display: inline;">
-                        <button type="submit" class="btn-action">Изменить</button>
+                        <button type="submit" class="btn-action btn-edit">Изменить</button>
                     </form>
-                    <form action="{{ route('admin.course-types.destroy', $course_type->id) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('admin.course-types.destroy', $course_type->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Вы уверены, что хотите удалить этот объект?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn-action btn-delete">Удалить</button>

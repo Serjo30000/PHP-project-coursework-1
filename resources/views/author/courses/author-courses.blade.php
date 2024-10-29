@@ -25,12 +25,18 @@
                         <button type="submit" class="btn-action">Посмотреть</button>
                     </form>
                     <form action="{{ route('author.courses.edit', $course->id) }}" method="GET" style="display: inline;">
-                        <button type="submit" class="btn-action">Изменить</button>
+                        <button type="submit" class="btn-action btn-edit">Изменить</button>
                     </form>
-                    <form action="{{ route('author.courses.destroy', $course->id) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('author.courses.destroy', $course->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Вы уверены, что хотите удалить этот объект?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn-action btn-delete">Удалить</button>
+                    </form>
+                    <form action="{{ route('author.reviews.allReviews', $course->id) }}" method="GET" style="display: inline;">
+                        <button type="submit" class="btn-action btn-connect">Отзывы</button>
+                    </form>
+                    <form action="{{ route('author.course-teachers.allCourseTeachers', $course->id) }}" method="GET" style="display: inline;">
+                        <button type="submit" class="btn-action btn-connect">Учителя для курса</button>
                     </form>
                 </td>
             </tr>

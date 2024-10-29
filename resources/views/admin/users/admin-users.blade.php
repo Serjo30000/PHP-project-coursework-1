@@ -36,7 +36,7 @@
                     <form action="{{ route('admin.users.show', $user->id) }}" method="GET" style="display: inline;">
                         <button type="submit" class="btn-action">Посмотреть</button>
                     </form>
-                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                    <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Вы уверены, что хотите удалить этот объект?');">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn-action btn-delete">Удалить</button>

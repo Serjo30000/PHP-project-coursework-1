@@ -1,7 +1,8 @@
-@extends('layouts.admin')
+@extends('layouts.author')
 
 @section('content')
     <h1 class="page-title">Отзывы</h1>
+    <a href="{{ route('author.courses.index') }}" class="action-link secondary-action">Вернуться</a>
     <table class="admin-table">
         <thead>
         <tr>
@@ -22,13 +23,8 @@
                 <td>{{ $review->course_id }}</td>
                 <td>{{ $review->user_id }}</td>
                 <td>
-                    <form action="{{ route('admin.reviews.show', $review->id) }}" method="GET" style="display: inline;">
+                    <form action="{{ route('author.reviews.show', $review->id) }}" method="GET" style="display: inline;">
                         <button type="submit" class="btn-action">Посмотреть</button>
-                    </form>
-                    <form action="{{ route('admin.reviews.destroy', $review->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Вы уверены, что хотите удалить этот объект?');">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn-action btn-delete">Удалить</button>
                     </form>
                 </td>
             </tr>

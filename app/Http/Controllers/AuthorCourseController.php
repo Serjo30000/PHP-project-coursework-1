@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\CourseTeacher;
 use App\Models\CourseType;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -183,6 +185,12 @@ class AuthorCourseController extends Controller
 
     public function destroy(Course $course)
     {
+        $user = Auth::user();
+
+        if (!$user || $course->user_id!=$user->id){
+            return redirect()->route('home')->with('error', 'Course not updated successfully.');
+        }
+
         if (Storage::disk('public')->exists('/images/dynamic/logo_courses/' . $course->image_logo)) {
             Storage::disk('public')->delete('/images/dynamic/logo_courses/' . $course->image_logo);
         }
@@ -197,5 +205,31 @@ class AuthorCourseController extends Controller
 
         $course->delete();
         return redirect()->route('author.courses.index')->with('success', 'Course deleted successfully.');
+    }
+
+    public function allReviews(Course $course)
+    {
+        $user = Auth::user();
+
+        if (!$user || $course->user_id!=$user->id){
+            return redirect()->route('home')->with('error', 'Course not updated successfully.');
+        }
+
+        $reviews = Review::where('course_id', $course->id)->paginate(10);
+
+        return view('author.reviews.author-reviews', compact('reviews', 'course'));
+    }
+
+    public function allCourseTeachers(Course $course)
+    {
+        $user = Auth::user();
+
+        if (!$user || $course->user_id!=$user->id){
+            return redirect()->route('home')->with('error', 'Course not updated successfully.');
+        }
+
+        $course_teachers = CourseTeacher::where('course_id', $course->id)->paginate(10);
+
+        return view('author.course-teachers.author-course-teachers', compact('course_teachers', 'course'));
     }
 }
