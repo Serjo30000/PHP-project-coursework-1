@@ -25,7 +25,10 @@
                 <input type="password" name="password" required>
             </div>
             <div class="form-group">
-                <button type="submit" class="submit-button">Войти</button>
+                <button type="submit" class="submit-button-client">Войти</button>
+            </div>
+            <div class="register-link">
+                <p>Еще нет аккаунта? <a href="{{ route('register') }}">Зарегистрируйтесь</a></p>
             </div>
         </form>
     </div>

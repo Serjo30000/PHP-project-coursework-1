@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\User;
 use App\Rules\EmailRule;
 use App\Rules\PhoneNumberRule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -80,5 +82,33 @@ class AdminUserController extends Controller
 
         $user->delete();
         return redirect()->route('admin.users.index')->with('success', 'User deleted successfully.');
+    }
+
+    public function personalCabinet()
+    {
+        if (!auth()->check()) {
+            return redirect()->route('home');
+        }
+
+        return view('personal-cabinet');
+    }
+
+    public function myCourses()
+    {
+        if (!auth()->check()) {
+            return redirect()->route('home');
+        }
+
+        $user = Auth::user();
+
+        if (!$user){
+            return redirect()->route('home')->with('error', 'Orders not shows successfully.');
+        }
+
+        $courseIds = $user->orders()->pluck('course_id');
+
+        $courses = Course::whereIn('id', $courseIds)->paginate(10);
+
+        return view('my-courses', compact('courses'));
     }
 }

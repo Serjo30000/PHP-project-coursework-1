@@ -342,3 +342,629 @@ body {
     display: flex;
     justify-content: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+.client-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #ffffff; /* Dark background */
+    color: #000000; /* White text */
+    height: 80px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* Logo styles */
+.client-header__logo img {
+    height: 50px; /* Adjust as needed */
+}
+
+/* Navigation styles */
+.client-header__nav {
+    flex-grow: 1;
+}
+
+.client-header__nav-list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    margin: 0;
+    padding: 0;
+}
+
+.client-header__nav-item {
+    margin-left: 20px; /* Space between items */
+}
+
+.client-header__nav-link {
+    color: #000000; /* Light blue links */
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 20px;
+}
+
+/* Hover effect */
+.client-header__nav-link:hover {
+    background-color: #d3d3d3;
+    color: #282c34; /* Change text color on hover */
+}
+
+/* Button styles */
+.client-header__logout-form {
+    display: inline; /* Align button inline */
+}
+
+.client-header__logout-button {
+    background: none;
+    border: none;
+    color: #f0f0f0;
+    cursor: pointer;
+    font-size: 20px; /* Inherit font size from the link */
+    padding: 10px 15px;
+}
+
+.container-client{
+    padding: 20px;
+    background-color: #fff4d6;
+}
+
+.submit-button-client {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1em;
+    background-color: #11b8c4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button-client:hover {
+    background-color: #0e949d;
+}
+
+.course-banner {
+    display: flex; /* Use flexbox to align items */
+    height: 50vh; /* Full screen height */
+    overflow: hidden; /* Hide overflow */
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.course-banner__content {
+    flex: 1; /* Take up the left side */
+    display: flex; /* Flexbox for vertical centering */
+    flex-direction: column; /* Vertical stacking */
+    justify-content: left; /* Center vertically */
+}
+
+.course-banner__title {
+    font-size: 48px; /* Large title font size */
+    font-weight: bold; /* Bold title */
+    margin-bottom: 10px; /* Space below title */
+    color: #fdb241; /* Dark text color */
+}
+
+.course-banner__slogan {
+    font-size: 24px; /* Slogan font size */
+    margin-bottom: 20px; /* Space below slogan */
+    color: #11b8c4; /* Gray color for the slogan */
+}
+
+.course-banner__description{
+    font-size: 20px; /* Slogan font size */
+    margin-bottom: 20px; /* Space below slogan */
+    color: #000000; /* Gray color for the slogan */
+}
+
+.course-banner__button {
+    display: inline-block; /* Make the button a block element */
+    padding: 15px 30px; /* Padding for the button */
+    background-color: #007BFF; /* Bootstrap primary color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Round button corners */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.course-banner__button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.course-banner__image {
+    flex: 1; /* Take up the right side */
+    display: flex; /* Flexbox for centering */
+    justify-content: right; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    overflow: hidden; /* Hide overflow */
+}
+
+.course-banner__image img {
+    height: 100%; /* Full height for the image */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Responsive image */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+}
+
+.course-banner__no-courses {
+    text-align: center; /* Center the no courses message */
+    font-size: 18px; /* Font size for the message */
+    color: #888; /* Gray color */
+    margin-top: 20px; /* Space above the message */
+}
+
+.submit-button-client-banner {
+    display: block;
+    width: 50%;
+    padding: 12px;
+    font-size: 1.1em;
+    background-color: #11b8c4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-button-client-banner:hover {
+    background-color: #0e949d;
+}
+
+.course-types {
+    margin-top: 20px; /* Space between the banner and course types */
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.course-types__list {
+    list-style: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for horizontal layout */
+    flex-wrap: wrap; /* Allow items to wrap onto the next line */
+}
+
+.course-types__item {
+    margin-right: 15px; /* Space between items */
+    margin-bottom: 10px; /* Space below each item for wrapping */
+}
+
+.course-types__button {
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size for the button */
+    background-color: #11b8c4; /* Button color */
+    color: #fff; /* Text color */
+    border: none; /* No border */
+    border-radius: 5px; /* Round button corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.course-types__button:hover {
+    background-color: #0e949d; /* Darker shade on hover */
+}
+
+.course-types__h3 {
+    font-size: 48px; /* Adjust font size as needed */
+    margin-bottom: 15px; /* Space below the heading */
+    color: #333; /* Text color */
+    font-weight: bold; /* Make the text bold */
+    text-align: left; /* Center the heading if desired */
+}
+
+
+
+
+
+
+.about-page {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Column layout */
+    background-color: #ffffff; /* White background for content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Flex container for left and right sections */
+.about-content {
+    display: flex; /* Use flexbox to create two columns */
+}
+
+/* Left section styles */
+.about-left {
+    flex: 1; /* Take up the left side */
+    padding: 20px; /* Padding for left section */
+    text-align: center; /* Center text in the left section */
+}
+
+/* Logo styles */
+.header-logo2 {
+    margin-bottom: 20px; /* Space below the logo */
+}
+
+.logo {
+    max-width: 150px; /* Logo width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Border text styles */
+.border-text {
+    margin: 20px 0; /* Space above and below */
+    color: #1032b8; /* Blue color for the text */
+}
+
+.border-text h2 {
+    font-size: 24px; /* Font size for the header */
+    font-weight: bold; /* Bold text */
+}
+
+.border-text h3 {
+    font-size: 20px; /* Font size for the subheader */
+    font-weight: normal; /* Normal weight for subheader */
+}
+
+/* Centered text styles */
+.center2 {
+    margin: 30px 0; /* Margin for spacing */
+}
+
+.text-center2 {
+    font-size: 28px; /* Larger subtitle font size */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Dark text color */
+}
+
+/* Right section styles */
+.about-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2; /* Take up more space on the right side */
+    padding: 20px; /* Padding for right section */
+}
+
+/* Main content styles */
+.text-center {
+    margin-top: 20px; /* Space above the text block */
+    color: #555; /* Gray color for the text */
+}
+
+.text-center p {
+    font-size: 18px; /* Font size for the main text */
+    line-height: 1.8; /* Increased line height for readability */
+}
+
+
+
+
+
+/* Page container styling */
+.materials-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Centered content container with background image */
+.materials-center {
+    width: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 70vh;
+    background: rgb(0, 98, 255);
+    background-image: url('/storage/app/public/images/static/fonpk2.png'); /* Correct image path */
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    position: relative;
+    padding: 20px; /* Inner padding to keep text away from edges */
+}
+
+/* Main text styling, positioned at the top left */
+.materials-text {
+    font-size: 50px;
+    color: azure;
+    text-align: left;
+    margin: 0;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+/* Subtitle styling below the main text */
+.materials-subtitle {
+    font-size: 24px;
+    color: azure;
+    margin-top: 20px;
+}
+
+/* Optional border or decorative image */
+.materials-border-img {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    width: 100px;
+    height: 100px;
+}
+
+/* Button styling */
+.materials-button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #11b8c4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.materials-button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 20px;
+    color: white; /* Text color */
+    background-color: transparent; /* Transparent background */
+    border: 2px solid white; /* White border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.materials-button:hover {
+    background-color: white; /* White background on hover */
+    color: #ff7b00; /* Change text color on hover */
+}
+
+
+
+
+
+
+
+
+.personal-cabinet {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.sidebar {
+    width: 20%; /* Width of the sidebar */
+    background-color: #ffffff; /* Light gray background */
+    padding: 20px;
+    border-radius: 5px;
+    margin-right: 20px;
+    height: 200px;
+}
+
+.sidebar-menu {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin: 15px 0; /* Space between items */
+}
+
+.sidebar-menu a {
+    color: #000000; /* Light blue links */
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 20px;
+}
+
+.sidebar h2 {
+    padding: 10px 15px;
+}
+
+.sidebar-menu a:hover {
+    text-decoration: none;
+    background-color: #d3d3d3;
+    color: #282c34;
+}
+
+.main-content {
+    flex: 1; /* Take remaining space */
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.profile-section {
+    margin-bottom: 30px; /* Space below profile section */
+}
+
+.profile-content {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space out the content */
+    align-items: center; /* Center vertically */
+    margin-top: 20px; /* Space above the content */
+}
+
+.profile-info {
+    width: 60%;
+    flex: 1; /* Allow this to take up available space */
+    margin-right: 20px; /* Space between info and avatar */
+}
+
+.avatar {
+    width: 40%; /* Fixed width for the avatar container */
+}
+
+.avatar img {
+    width: 100%; /* Full width of the avatar container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make it circular */
+}
+
+.edit-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #11b8c4; /* Primary button color */
+    color: #ffffff; /* Text color */
+    border: none;
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Space above the button */
+}
+
+.edit-button:hover {
+    background-color: #0e949d; /* Darker on hover */
+}
+
+.profile-content ul {
+    padding: 20px;
+    width: 100%;
+}
+
+.course-card {
+    display: flex; /* Use flexbox to create two columns */
+    align-items: flex-start; /* Align items at the start */
+    margin: 15px 0; /* Space between cards */
+    padding: 10px; /* Inner padding */
+    border: 1px solid #ccc; /* Border around each card */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+    transition: box-shadow 0.3s; /* Smooth shadow transition */
+    width: 100%;
+}
+
+.course-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+}
+
+.course-logo {
+    flex-shrink: 0; /* Prevent the logo from shrinking */
+    width: 120px; /* Set a fixed width for the logo */
+    height: 120px; /* Set a fixed height for the logo */
+    margin-right: 20px; /* Space between logo and info */
+}
+
+.course-logo img {
+    width: 100%; /* Make image fill the div */
+    height: 100%; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover without distortion */
+    border-radius: 4px; /* Slightly rounded corners */
+}
+
+.course-info {
+    display: flex; /* Flex layout for course information */
+    flex-direction: column; /* Stack the information vertically */
+    justify-content: space-between; /* Space out content */
+}
+
+.course-number {
+    font-weight: bold; /* Make number bold */
+    font-size: 18px; /* Slightly larger font size */
+}
+
+.course-title {
+    font-size: 16px; /* Regular font size for the title */
+    color: #333; /* Darker text color for better visibility */
+    margin-bottom: 5px; /* Space between titles */
+}
+
+.course-type-list {
+    list-style: none;
+    padding: 0;
+}
+
+.course-type-list li {
+    margin: 10px 0;
+}
+
+.course-type-list a {
+    text-decoration: none;
+    color: blue;
+}
+
+.course-buy-types {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.course-buy-list {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Используем Flexbox для размещения карточек */
+    flex-wrap: wrap; /* Позволяем карточкам переноситься на новую строку */
+    justify-content: space-between; /* Выравниваем карточки с отступами */
+}
+
+.course-buy-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px 0; /* Вертикальный отступ между карточками */
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 30%; /* Гибкая ширина, 3 карточки на строку */
+    max-width: 30%; /* Ограничиваем максимальную ширину карточки */
+    box-sizing: border-box; /* Учитываем паддинги и бордеры в ширину */
+    background-color: #f9f9f9;
+}
+
+.course-buy-header {
+    display: flex;
+    align-items: center;
+}
+
+.course-buy-logo {
+    width: 100px; /* Размер логотипа */
+    height: 100px; /* Размер логотипа */
+    margin-right: 10px; /* Отступ между логотипом и заголовком */
+}
+
+.course-buy-title {
+    font-size: 20px;
+    margin: 0;
+}
+
+.course-buy-info {
+    margin: 10px 0;
+}
+
+.course-buy-description {
+    margin: 10px 0;
+}
+
+.course-buy-buttons {
+    display: flex;
+    justify-content: space-between; /* Выравнивание кнопок */
+    margin-top: auto; /* Сдвигает кнопки вниз */
+}
+
+.course-buy-button {
+    background-color: #11b8c4; /* Цвет фона кнопки */
+    color: #ffffff; /* Цвет текста */
+    border: none; /* Убираем обводку */
+    border-radius: 4px; /* Закругляем углы */
+    padding: 10px 15px; /* Отступы кнопки */
+    cursor: pointer; /* Указываем на возможность клика */
+    transition: background-color 0.3s ease; /* Плавный переход цвета */
+    width: 100%; /* Задаем ширину кнопок */
+}
+
+.course-buy-button:hover {
+    background-color: #0e949d; /* Цвет фона при наведении */
+}

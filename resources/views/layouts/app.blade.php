@@ -7,12 +7,14 @@
     @vite('resources/css/app.css')
 </head>
 <body>
-@include('partials.header')
+<div class="page-container">
+    @include('partials.header')
 
-<main>
-    @yield('content')
-</main>
+    <div class="container-client">
+        @yield('content')
+    </div>
 
-@include('partials.footer')
+    @include('partials.footer')
+</div>
 </body>
 </html>
