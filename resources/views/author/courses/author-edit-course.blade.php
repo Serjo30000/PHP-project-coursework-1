@@ -49,7 +49,10 @@
             </div>
             <div class="form-group">
                 <label for="lecture_status">Статус лекций</label>
-                <input type="text" name="lecture_status" value="{{ old('lecture_status', $course->lecture_status ?? '') }}" required>
+                <select name="lecture_status" required>
+                    <option value="Предзаписанные" {{ (old('lecture_status', $course->lecture_status ?? '') == 'Предзаписанные') ? 'selected' : '' }}>Предзаписанные</option>
+                    <option value="Непредзаписанные" {{ (old('lecture_status', $course->lecture_status ?? '') == 'Непредзаписанные') ? 'selected' : '' }}>Непредзаписанные</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="complexity">Сложность</label>

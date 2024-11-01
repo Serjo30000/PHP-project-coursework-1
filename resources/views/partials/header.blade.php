@@ -8,8 +8,8 @@
             <li class="client-header__nav-item"><a class="client-header__nav-link" href="{{ route('about') }}">О нас</a></li>
             <li class="client-header__nav-item"><a class="client-header__nav-link" href="{{ route('materials') }}">Полезные материалы</a></li>
             <li class="client-header__nav-item"><a class="client-header__nav-link" href="{{ route('client.client-course-types.index', ['type_id' => 1]) }}">Курсы</a></li>
-            @if(Auth::check() && Auth::user()->hasRole('client')) <!-- Check if user has the 'client' role -->
-                <li class="client-header__nav-item"><a class="client-header__nav-link" href="{{ route('home') }}">Корзина</a></li>
+            @if(Auth::check() && Auth::user()->hasRole('client'))
+                <li class="client-header__nav-item"><a class="client-header__nav-link" href="{{ route('cart') }}">Корзина</a></li>
             @endif
             @if (Auth::check())
                 <li class="client-header__nav-item"><a class="client-header__nav-link" href="{{ route('personalCabinet') }}">Личный кабинет</a></li>

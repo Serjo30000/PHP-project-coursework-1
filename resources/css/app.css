@@ -968,3 +968,375 @@ body {
 .course-buy-button:hover {
     background-color: #0e949d; /* Цвет фона при наведении */
 }
+
+.cart-content{
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+
+
+
+
+.client-course-show{
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.client-course-show-info-card{
+    width: 100%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*.client-course-show {*/
+/*    max-width: 800px;*/
+/*    margin: 0 auto;*/
+/*    padding: 20px;*/
+/*}*/
+
+.client-course-show-title {
+    font-size: 40px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.client-course-show-content-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.client-course-show-info-section {
+    flex: 1;
+}
+
+.client-course-show-info-section-text{
+    font-size: 24px;
+}
+
+.client-course-show-info-section-h-text{
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.client-course-show-banner-section {
+    text-align: center;
+}
+
+.client-course-show-banner-section img {
+    max-width: 100%;
+    height: 600px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.client-course-show-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.client-course-show-action-button {
+    width: 100%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.client-course-show-secondary-action {
+    background-color: #444;
+    color: #ffffff;
+}
+
+.client-course-show-secondary-action:hover {
+    background-color: #555;
+}
+
+.client-course-show-primary-action {
+    background-color: #11b8c4;
+    color: #ffffff;
+}
+
+.client-course-show-primary-action:hover {
+    background-color: #0e949d;
+}
+
+.client-course-info-container {
+    display: flex;
+    justify-content: space-between; /* Располагает элементы в ряд */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.client-course-info-item {
+    text-align: center; /* Центрирование текста */
+    flex: 1; /* Заставляет элементы занимать равное пространство */
+}
+
+.client-course-info-label {
+    font-size: 32px;
+    font-weight: bold; /* Увеличивает выделение заголовка */
+    margin-bottom: 5px; /* Отступ между заголовком и значением */
+}
+
+.client-course-info-value {
+    font-size: 24px; /* Уменьшает размер шрифта значения */
+    color: #555; /* Ставим более мягкий цвет для значения */
+}
+
+.client-course-price-container {
+    display: flex;
+    justify-content: space-between; /* Располагает элементы в ряд */
+    align-items: center;
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.client-course-price-item {
+    text-align: center; /* Центрирование текста */
+    flex: 1; /* Заставляет элементы занимать равное пространство */
+}
+
+.client-course-price-label {
+    font-size: 40px;
+    font-weight: bold; /* Увеличивает выделение заголовка */
+    margin-bottom: 5px; /* Отступ между заголовком и значением */
+}
+
+.client-course-price-value {
+    font-size: 32px; /* Уменьшает размер шрифта значения */
+    color: #555; /* Ставим более мягкий цвет для значения */
+}
+
+.client-course-price-image {
+    max-width: 600px; /* Максимальная ширина изображения */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.client-course-focuses-container {
+    margin: 20px 0; /* Отступ сверху и снизу */
+    padding: 10px; /* Внутренние отступы */
+}
+
+.client-course-focuses-title {
+    font-size: 40px; /* Размер шрифта заголовка */
+    margin-bottom: 15px; /* Отступ между заголовком и списком */
+    text-align: center; /* Центрирование заголовка */
+}
+
+.client-course-focuses-list {
+    list-style-type: none; /* Убираем стандартные маркеры списка */
+    padding: 0; /* Убираем внутренние отступы у списка */
+}
+
+.client-course-focuses-item {
+    background-color: #ffffff; /* Цвет фона для каждого элемента списка */
+    border: 1px solid #ddd; /* Светлая граница для каждого элемента списка */
+    border-radius: 3px; /* Закругление углов элементов списка */
+    margin: 5px 0; /* Отступы между элементами списка */
+    padding: 10px; /* Внутренние отступы */
+    transition: background-color 0.2s; /* Эффект при наведении */
+}
+
+.client-course-focuses-item:hover {
+    background-color: #f0f0f0; /* Цвет фона при наведении */
+}
+
+
+
+.client-course-teachers-container {
+    margin: 20px 0; /* Отступ сверху и снизу */
+    padding: 20px; /* Внутренние отступы */
+}
+
+.client-course-teachers-title {
+    font-size: 40px; /* Размер шрифта заголовка */
+    margin-bottom: 15px; /* Отступ между заголовком и списком */
+    text-align: center; /* Центрирование заголовка */
+}
+
+.client-course-teachers-list {
+    display: grid; /* Используем сетку для карточек */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Автоматическое заполнение колонок */
+    gap: 20px; /* Отступ между карточками */
+}
+
+.client-course-teachers-item {
+    background-color: #ffffff; /* Цвет фона для карточки */
+    border: 1px solid #ddd; /* Светлая граница */
+    border-radius: 8px; /* Закругление углов */
+    padding: 15px; /* Внутренние отступы */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    text-align: center; /* Центрирование текста */
+    display: flex; /* Используем flex для выравнивания содержимого */
+    flex-direction: column; /* Вертикальное расположение элементов */
+}
+
+.client-course-teachers-item:hover {
+    background-color: #f0f0f0; /* Цвет фона при наведении */
+}
+
+.client-course-teacher-photo {
+    margin-bottom: 10px; /* Отступ снизу от фотографии */
+}
+
+.client-course-teacher-photo img {
+    width: 100%; /* Ширина фото занимает всю карточку */
+    height: auto; /* Фиксированная высота для изображения */
+    object-fit: cover; /* Обеспечивает правильное соотношение сторон и заполнение */
+    border-radius: 5px; /* Закругление углов фото */
+}
+
+.client-course-teacher-info {
+    flex: 1; /* Позволяет этому блоку занимать оставшееся пространство */
+}
+
+.client-course-teacher-name {
+    font-size: 18px; /* Размер шрифта для имени учителя */
+    margin: 10px 0; /* Отступы для имени */
+    color: #333; /* Цвет текста имени */
+}
+
+.client-course-teacher-description {
+    font-size: 14px; /* Размер шрифта для описания */
+    color: #666; /* Цвет текста описания */
+    margin-top: 5px; /* Отступ сверху для описания */
+    overflow: hidden; /* Скрываем текст, который выходит за пределы контейнера */
+    text-overflow: ellipsis; /* Добавляем многоточие, если текст слишком длинный */
+    display: -webkit-box; /* Для поддержки свойств для многоточия */
+    -webkit-line-clamp: 2; /* Ограничиваем количество строк */
+    -webkit-box-orient: vertical; /* Вертикальная ориентация */
+}
+
+
+.comments-section {
+    padding: 20px; /* Внутренние отступы */
+    background-color: #f9f9f9; /* Цвет фона секции */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
+}
+
+.comments-section h2 {
+    margin-bottom: 20px; /* Отступ снизу заголовка */
+    font-size: 24px; /* Размер шрифта заголовка */
+    color: #333; /* Цвет текста заголовка */
+}
+
+.comment {
+    border-bottom: 1px solid #ddd; /* Разделитель между комментариями */
+    padding: 15px 0; /* Внутренние отступы для комментария */
+    background-color: #f9f9f9;
+}
+
+.comment:last-child {
+    border-bottom: none; /* Убираем разделитель для последнего комментария */
+}
+
+.comment-user {
+    display: flex; /* Используем flexbox для выравнивания элементов */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    margin-bottom: 10px; /* Отступ снизу для пользователя */
+}
+
+.user-avatar {
+    width: 40px; /* Ширина аватара */
+    height: 40px; /* Высота аватара */
+    border-radius: 50%; /* Круглая форма аватара */
+    margin-right: 10px; /* Отступ справа от аватара */
+}
+
+.user-name {
+    font-weight: bold; /* Полужирное начертание имени пользователя */
+}
+
+.comment-grade {
+    color: #888; /* Цвет текста оценки */
+}
+
+.comment-title {
+    font-size: 18px; /* Размер шрифта заголовка комментария */
+    color: #2c3e50; /* Цвет заголовка комментария */
+    margin: 10px 0; /* Отступы сверху и снизу заголовка комментария */
+}
+
+.comment-text {
+    color: #555; /* Цвет текста комментария */
+    line-height: 1.5; /* Межстрочный интервал для читаемости */
+}
+
+.comment-date {
+    display: block; /* Отображаем дату в отдельной строке */
+    color: #aaa; /* Цвет текста даты */
+    font-size: 12px; /* Размер шрифта даты */
+}
+
+.user-avatar {
+    width: 50px; /* Ширина аватара */
+    height: 50px; /* Высота аватара */
+    border-radius: 50%; /* Круглая форма аватара */
+    margin-right: 10px; /* Отступ справа от аватара */
+    border: 2px solid #3498db; /* Цвет рамки вокруг аватара */
+    object-fit: cover; /* Обрезка изображения по форме */
+}
+
+.comment-form-section {
+    background-color: #f9f9f9; /* Цвет фона формы */
+    border-radius: 8px; /* Скругление углов */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта глубины */
+}
+
+.comment-form-title {
+    margin-bottom: 20px; /* Отступ снизу заголовка */
+    font-size: 24px; /* Размер шрифта заголовка */
+    color: #333; /* Цвет текста заголовка */
+}
+
+.comment-form-group {
+    margin-bottom: 15px; /* Отступ снизу для группы формы */
+}
+
+.comment-form-label {
+    display: block; /* Отображение метки как блочного элемента */
+    margin-bottom: 5px; /* Отступ снизу для метки */
+    font-weight: bold; /* Полужирный текст для метки */
+}
+
+.comment-form-select,
+.comment-form-input,
+.comment-form-textarea {
+    width: 100%; /* Ширина на 100% */
+    padding: 10px; /* Внутренние отступы */
+    border: 1px solid #ccc; /* Рамка */
+    border-radius: 4px; /* Скругление углов */
+    font-size: 16px; /* Размер шрифта */
+    box-sizing: border-box; /* Учет внутренних отступов и границ в ширине */
+}
+
+.comment-form-textarea {
+    resize: vertical; /* Возможность изменять размер только по вертикали */
+}
+
+.comment-form-submit {
+    background-color: #3498db; /* Цвет кнопки */
+    color: white; /* Цвет текста кнопки */
+    padding: 10px 15px; /* Внутренние отступы кнопки */
+    border: none; /* Убрать рамку */
+    border-radius: 4px; /* Скругление углов кнопки */
+    cursor: pointer; /* Указатель при наведении */
+    font-size: 16px; /* Размер шрифта кнопки */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+}
+
+.comment-form-submit:hover {
+    background-color: #2980b9; /* Цвет кнопки при наведении */
+}

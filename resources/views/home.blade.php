@@ -8,7 +8,7 @@
             <div class="course-banner__content">
                 <h2 class="course-banner__title">{{ $randomCourse->title }}</h2>
                 <p class="course-banner__slogan">{{ $randomCourse->slogan }}</p>
-                <form action="{{ route('home') }}" method="GET" style="display:inline;">
+                <form action="{{ route('client.client-show-course.show', $randomCourse->id) }}" method="GET" style="display:inline;">
                     <button type="submit" class="submit-button-client-banner">Записаться на курс</button>
                 </form>
                 <p class="course-banner__description">{{ $randomCourse->description }}</p>

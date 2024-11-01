@@ -36,12 +36,24 @@ Route::get('/materials', [MaterialController::class, 'index'])->name('materials'
 
 Route::get('/personal-cabinet', [AdminUserController::class, 'personalCabinet'])->name('personalCabinet');
 
-Route::get('/my-courses', [AdminUserController::class, 'myCourses'])->name('myCourses');
-
 Route::middleware(['role:client'])->group(function () {
     Route::get('/client/client-course-types', [ClientCourseController::class, 'index'])->name('client.client-course-types.index');
 
+    Route::get('/client/client-course-types/{course}', [ClientCourseController::class, 'show'])->name('client.client-show-course.show');
+
+    Route::post('/client/client-course-types/commenting', [ClientCourseController::class, 'commenting'])->name('client.client-show-course.commenting');
+
+    Route::get('/my-courses', [AdminUserController::class, 'myCourses'])->name('myCourses');
+
     Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
+
+    Route::get('/cart', [CartController::class, 'index'])->name('cart');
+
+    Route::post('/cart/pay', [CartController::class, 'pay'])->name('cart.pay');
+
+    Route::post('/cart/deletes', [CartController::class, 'deletes'])->name('cart.deletes');
+
+    Route::post('/cart/destroy/{course}', [CartController::class, 'destroy'])->name('cart.destroy');
 });
 
 Route::middleware(['role:admin'])->group(function () {

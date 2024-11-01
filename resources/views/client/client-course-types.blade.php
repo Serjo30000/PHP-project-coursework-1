@@ -50,7 +50,7 @@
                                 <input type="hidden" name="course_id" value="{{ $course->id }}">
                                 <button type="submit" class="course-buy-button">В корзину</button>
                             </form>
-                            <form action="{{ route('home') }}" method="GET" style="display: inline;">
+                            <form action="{{ route('client.client-show-course.show', $course->id) }}" method="GET" style="display: inline;">
                                 <button type="submit" class="course-buy-button">Подробнее</button>
                             </form>
                         </div>
