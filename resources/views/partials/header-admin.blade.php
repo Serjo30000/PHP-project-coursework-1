@@ -1,5 +1,5 @@
 <header class="admin-header">
-    <h1 class="admin-title">Админ панель</h1>
+    <a href="{{ route('admin.users.index') }}" class="admin-title-a">Админ панель</a>
     <nav class="admin-nav">
         <ul class="admin-menu">
             <li><a href="{{ route('admin.users.index') }}" class="admin-link">Пользователи</a></li>

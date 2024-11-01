@@ -165,7 +165,6 @@
                     <div class="comment-form-group">
                         <label for="grade" class="comment-form-label">Оценка:</label>
                         <select name="grade" id="grade" required class="comment-form-select">
-                            <option value="">Выберите оценку</option>
                             @for($i = 1; $i <= 5; $i++)
                                 <option value="{{ $i }}" {{ $i == 5 ? 'selected' : '' }}>{{ $i }}</option>
                             @endfor
@@ -179,7 +178,7 @@
 
                     <div class="comment-form-group">
                         <label for="text" class="comment-form-label">Комментарий:</label>
-                        <textarea name="text" id="text" required placeholder="Введите ваш комментарий" rows="4" class="comment-form-textarea"></textarea>
+                        <textarea name="text" id="text" rows="4" class="comment-form-textarea"></textarea>
                     </div>
 
                     <button type="submit" class="comment-form-submit">Отправить</button>

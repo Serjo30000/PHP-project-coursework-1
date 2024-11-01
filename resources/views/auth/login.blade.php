@@ -17,12 +17,12 @@
         <form action="{{ route('login') }}" method="POST" class="auth-form">
             @csrf
             <div class="form-group">
-                <label for="login">Логин</label>
-                <input type="text" name="login" required autofocus>
+                <label for="login">Логин*</label>
+                <input type="text" name="login" placeholder="Введите логин" required autofocus>
             </div>
             <div class="form-group">
-                <label for="password">Пароль</label>
-                <input type="password" name="password" required>
+                <label for="password">Пароль*</label>
+                <input type="password" name="password" placeholder="Введите пароль" required>
             </div>
             <div class="form-group">
                 <button type="submit" class="submit-button-client">Войти</button>

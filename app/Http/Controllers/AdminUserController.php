@@ -40,7 +40,7 @@ class AdminUserController extends Controller
             'phone' => ['required', 'string', 'max:15', 'unique:users', new PhoneNumberRule],
             'first_name' => 'required|string|max:255',
             'second_name' => 'required|string|max:255',
-            'last_name' => 'string|max:255',
+            'last_name' => 'nullable|string|max:255',
             'sex' => 'required|string',
             'date_birth' => 'required|date',
             'image_avatar' => 'required|image',

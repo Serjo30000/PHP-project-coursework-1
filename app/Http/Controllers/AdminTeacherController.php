@@ -34,7 +34,7 @@ class AdminTeacherController extends Controller
         $validated = $request->validate([
             'first_name' => 'required|string|max:255',
             'second_name' => 'required|string|max:255',
-            'last_name' => 'string|max:255',
+            'last_name' => 'nullable|string|max:255',
             'sex' => 'required|string',
             'date_birth' => 'required|date',
             'phone' => ['required', 'string', 'max:15', 'unique:teachers', new PhoneNumberRule],
@@ -75,7 +75,7 @@ class AdminTeacherController extends Controller
         $validated = $request->validate([
             'first_name' => 'required|string|max:255',
             'second_name' => 'required|string|max:255',
-            'last_name' => 'string|max:255',
+            'last_name' => 'nullable|string|max:255',
             'sex' => 'required|string',
             'date_birth' => 'required|date',
             'phone' => ['required', 'string', 'max:15', Rule::unique('teachers', 'phone')->ignore($teacher->id), new PhoneNumberRule],

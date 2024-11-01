@@ -31,18 +31,18 @@
                             <h3 class="course-buy-title">{{ $course->title }}</h3>
                         </div>
                         <div class="course-buy-info">
-                            <p>Кол-во недель: <strong>{{ $course->count_week }}</strong></p>
+                            <p><strong>Кол-во недель:</strong>{{ ' ' . $course->count_week }}</p>
                             @php
                                 $reviews = $course->reviews;
                                 $grades = $reviews->pluck('grade');
                                 $averageGrade = $grades->isNotEmpty() ? ceil($grades->avg()) : 5; // Default to 5 if no reviews
                             @endphp
-                            <p>Оценка: <strong>{{ $averageGrade }}</strong></p>
-                            <p>Сложность: <strong>{{ $course->complexity }}</strong></p>
-                            <p>Цена: <strong>{{ $course->price }} Р</strong></p>
+                            <p><strong>Оценка: </strong>{{ ' ' . $averageGrade }}</p>
+                            <p><strong>Сложность: </strong>{{ ' ' . $course->complexity }}</p>
+                            <p><strong>Цена: </strong>{{ ' ' . $course->price }} Р</p>
                         </div>
                         <div class="course-buy-description">
-                            <p>Описание: {{ $course->description }}</p>
+                            <p><strong>Описание: </strong> {{ ' ' . $course->description }}</p>
                         </div>
                         <div class="course-buy-buttons">
                             <form action="{{ route('cart.add') }}" method="POST" style="display: inline;">

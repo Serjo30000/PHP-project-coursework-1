@@ -17,7 +17,9 @@
                         <p><strong>Телефон:</strong> {{ Auth::user()->phone }}</p>
                         <p><strong>Имя:</strong> {{ Auth::user()->first_name }}</p>
                         <p><strong>Фамилия:</strong> {{ Auth::user()->second_name }}</p>
-                        <p><strong>Отчество:</strong> {{ Auth::user()->last_name }}</p>
+                        @if(Auth::user()->last_name)
+                            <p><strong>Отчество:</strong> {{ Auth::user()->last_name }}</p>
+                        @endif
                         <p><strong>Пол:</strong> {{ Auth::user()->sex }}</p>
                         <p><strong>Дата рождения:</strong> {{ Auth::user()->date_birth }}</p>
                         <p><strong>Описание:</strong> {{ Auth::user()->description }}</p>

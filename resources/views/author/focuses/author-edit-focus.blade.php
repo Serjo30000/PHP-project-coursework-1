@@ -20,7 +20,7 @@
             @method('PUT')
 
             <div class="form-group">
-                <label for="course_id">Курс</label>
+                <label for="course_id">Курс*</label>
                 <select name="course_id" required>
                     @foreach ($courses as $courseEl)
                         <option value="{{ $courseEl->id }}" {{ old('course_id') == $courseEl->id ? 'selected' : '' }}>
@@ -30,8 +30,8 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="for_whom">Для кого</label>
-                <input type="text" name="for_whom" value="{{ old('for_whom', $focus->for_whom ?? '') }}" required>
+                <label for="for_whom">Для кого*</label>
+                <input type="text" name="for_whom" value="{{ old('for_whom', $focus->for_whom ?? '') }}" placeholder="Введите для кого (Начинающих дизайнеров)" required>
             </div>
             <button type="submit" class="submit-button">Изменить</button>
         </form>

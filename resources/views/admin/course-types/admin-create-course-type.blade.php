@@ -18,8 +18,8 @@
         <form action="{{ route('admin.course-types.store') }}" method="POST" enctype="multipart/form-data" class="teacher-form">
             @csrf
             <div class="form-group">
-                <label for="name">Имя</label>
-                <input type="text" name="name" value="{{ old('name', $course_type->name ?? '') }}" required>
+                <label for="name">Название*</label>
+                <input type="text" name="name" value="{{ old('name', $course_type->name ?? '') }}" placeholder="Введите название" required>
             </div>
             <button type="submit" class="submit-button">Создать</button>
         </form>

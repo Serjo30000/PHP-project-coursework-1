@@ -10,7 +10,7 @@
                 <strong>Номер:</strong> <span>{{ $course_type->id }}</span>
             </div>
             <div class="info-item">
-                <strong>Имя:</strong> <span>{{ $course_type->name }}</span>
+                <strong>Название:</strong> <span>{{ $course_type->name }}</span>
             </div>
         </div>
     </div>

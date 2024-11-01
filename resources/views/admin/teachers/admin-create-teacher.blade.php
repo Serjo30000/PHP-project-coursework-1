@@ -18,43 +18,43 @@
         <form action="{{ route('admin.teachers.store') }}" method="POST" enctype="multipart/form-data" class="teacher-form">
             @csrf
             <div class="form-group">
-                <label for="first_name">Имя</label>
-                <input type="text" name="first_name" value="{{ old('first_name', $teacher->first_name ?? '') }}" required>
+                <label for="first_name">Имя*</label>
+                <input type="text" name="first_name" value="{{ old('first_name', $teacher->first_name ?? '') }}" placeholder="Введите имя" required>
             </div>
             <div class="form-group">
-                <label for="second_name">Фамилия</label>
-                <input type="text" name="second_name" value="{{ old('second_name', $teacher->second_name ?? '') }}" required>
+                <label for="second_name">Фамилия*</label>
+                <input type="text" name="second_name" value="{{ old('second_name', $teacher->second_name ?? '') }}" placeholder="Введите фамилию" required>
             </div>
             <div class="form-group">
                 <label for="last_name">Отчество</label>
-                <input type="text" name="last_name" value="{{ old('last_name', $teacher->last_name ?? '') }}" required>
+                <input type="text" name="last_name" value="{{ old('last_name', $teacher->last_name ?? '') }}" placeholder="Введите отчество">
             </div>
             <div class="form-group">
-                <label for="sex">Пол</label>
+                <label for="sex">Пол*</label>
                 <select name="sex" required>
                     <option value="Мужчина" {{ (old('sex', $teacher->sex ?? '') == 'Мужчина') ? 'selected' : '' }}>Мужчина</option>
                     <option value="Женщина" {{ (old('sex', $teacher->sex ?? '') == 'Женщина') ? 'selected' : '' }}>Женщина</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="date_birth">Дата рождения</label>
+                <label for="date_birth">Дата рождения*</label>
                 <input type="date" name="date_birth" value="{{ old('date_birth', $teacher->date_birth ?? '') }}" required>
             </div>
             <div class="form-group">
-                <label for="phone">Телефон</label>
-                <input type="text" name="phone" value="{{ old('phone', $teacher->phone ?? '') }}">
+                <label for="phone">Телефон*</label>
+                <input type="text" name="phone" value="{{ old('phone', $teacher->phone ?? '') }}" placeholder="Введите телефон (+71111111111/81111111111)" required>
             </div>
             <div class="form-group">
-                <label for="email">Почта</label>
-                <input type="email" name="email" value="{{ old('email', $teacher->email ?? '') }}" required>
+                <label for="email">Почта*</label>
+                <input type="email" name="email" value="{{ old('email', $teacher->email ?? '') }}" placeholder="Введите почту (Ivan@mail.ru)" required>
             </div>
             <div class="form-group">
-                <label for="description">Описание</label>
+                <label for="description">Описание*</label>
                 <textarea name="description">{{ old('description', $teacher->description ?? '') }}</textarea>
             </div>
             <div class="form-group">
-                <label for="image_photo">Фото</label>
-                <input type="file" name="image_photo">
+                <label for="image_photo">Фото*</label>
+                <input type="file" name="image_photo" accept=".jpg, .jpeg">
             </div>
             <button type="submit" class="submit-button">Создать</button>
         </form>
