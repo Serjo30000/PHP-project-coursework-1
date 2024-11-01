@@ -157,9 +157,15 @@ Route::middleware(['role:author'])->group(function () {
 });
 
 Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
+
 Route::post('login', [AuthController::class, 'login']);
+
 Route::get('register', [AuthController::class, 'showRegisterForm'])->name('register');
+
 Route::post('register', [AuthController::class, 'register']);
+
 Route::get('edit-account', [AuthController::class, 'showEditAccountForm'])->name('edit-account');
+
 Route::post('edit-account', [AuthController::class, 'editAccount']);
+
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');

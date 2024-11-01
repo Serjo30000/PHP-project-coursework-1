@@ -32,10 +32,10 @@
                 @if(Auth::user()->hasRole('client'))
                     <a href="{{ route('home') }}" class="edit-button">Главная</a>
                 @endif
-                @if(Auth::user()->hasRole('admin')) <!-- Check if user has the 'client' role -->
+                @if(Auth::user()->hasRole('admin'))
                 <a href="{{ route('admin.users.index') }}" class="edit-button">Админ панель</a>
                 @endif
-                @if(Auth::user()->hasRole('author')) <!-- Check if user has the 'client' role -->
+                @if(Auth::user()->hasRole('author'))
                 <a href="{{ route('author.courses.index') }}" class="edit-button">Автор панель</a>
                 @endif
             </div>

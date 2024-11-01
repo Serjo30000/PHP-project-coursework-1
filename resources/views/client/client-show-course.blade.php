@@ -4,7 +4,6 @@
     <div class="client-course-show">
         <div class="client-course-show-info-card">
             <div class="client-course-show-content-container">
-                <!-- Левая колонка с информацией -->
                 <div class="client-course-show-info-section">
                     <div class="client-course-show-info-section-text">{{ $course->slogan }}</div>
                     <div class="client-course-show-info-section-h-text">{{ $course->title }}</div>
